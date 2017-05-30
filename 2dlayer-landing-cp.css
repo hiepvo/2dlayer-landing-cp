@@ -193,8 +193,13 @@ html {
   background-repeat: no-repeat;
   padding-left: 4rem;
   background-size: 1.5rem;
-
 }
+
+.cp-layer-wrapper .cp-following .layer-content .article ul li:hover{
+  cursor: pointer;
+  background-color: #f8fdff;
+}
+
 
 .cp-layer-wrapper .cp-following .layer-content .close {
   top: 35px;
