@@ -91,6 +91,11 @@ html {
   animation: fadein .75s forwards 1.8s;
 }
 
+.cp-layer-wrapper .layer-content.active .article h3{
+  margin-top: 2.8rem;
+  margin-bottom: 1.2rem;
+}
+
 
 .cp-layer-wrapper .layer-content.active header {
   cursor: auto !important;
@@ -100,7 +105,7 @@ html {
   line-height: 0;
   font-size: 2.6rem;
   font-weight: 400;
-  padding: 0 3rem;
+  padding: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -125,6 +130,7 @@ html {
   height: 60px;
   line-height: 50px;
   overflow: hidden;
+  border-radius: 3px;
 }
 
 .cp-layer-wrapper .layer:hover header {
@@ -226,6 +232,10 @@ html {
 #layer1 header {
   background-color: #68CCE8;
 }
+#layer1 header:hover{
+  cursor: pointer;
+  background-color: #67d1ed;
+}
 
 #layer2 {
   top: 0;
@@ -237,6 +247,11 @@ html {
   background-color: #4F8397;
 }
 
+#layer2 header:hover {
+  cursor: pointer;
+  background-color: #54889c;
+}
+
 #layer3 {
   top: 0;
   left: 0;
@@ -245,6 +260,10 @@ html {
 
 #layer3 header {
   background-color: #334E5D;
+}
+#layer3 header:hover {
+  cursor: pointer;
+  background-color: #385362;
 }
 
 #layer4 {
@@ -255,6 +274,11 @@ html {
 
 #layer4 header {
   background-color: #162131;
+}
+
+#layer4 header:hover {
+  cursor: pointer;
+  background-color: #153241;
 }
 
 #layer5 {
@@ -268,6 +292,11 @@ html {
   background-color: #782E64;
 }
 
+#layer5 header:hover {
+  cursor: pointer;
+  background-color: #7d2e69;
+}
+
 #layer6 {
   top: 0;
   left: 0;
@@ -278,6 +307,11 @@ html {
 #layer6 header {
   background-color: #AF1F7C;
 }
+#layer6 header:hover {
+  cursor: pointer;
+  background-color: #b41f81;
+}
+
 
 #cp-following {
   top: 0;
