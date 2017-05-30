@@ -4,8 +4,8 @@
 
 (function(){
   'use strict';
-  var init      = {};
-  var maxHeight = 960;
+  var init        = {};
+  var maxHeight   = 960;
   var cp_f_height = 800;
 
   var links = document.querySelectorAll('.cp-layer-wrapper header');
@@ -106,7 +106,7 @@
           article.removeAttribute("style");
         }, 750);
         var close = document.querySelector('#' + el.parentNode.id + ' span.close');
-        hide(close, 500);
+        hide(close, 100);
       }
     }
   }
@@ -201,7 +201,6 @@
     }
     else{
       closeSlide(cp_f);
-
       var headerContent              = document.querySelector('#' + currentEl.id + ' .header-content');
       headerContent.style.visibility = 'hidden';
       headerContent.style.opacity    = 0;
@@ -217,7 +216,6 @@
       addClass(lastChild, 'top-layer');
       addClass(content, 'active');
       addClass(hidden_layer, 'visited');
-
       addClass(hidden_layer, 'visible');
 
       setTimeout(function(){
@@ -267,11 +265,11 @@
       setTimeout(function(){
         removeClass(hidden_layer, 'visible');
 
-        lastChild.style.marginTop     = getStyle(hidden_layer, 'margin-top') + 'px';
-        lastChild.style.marginLeft    = getStyle(hidden_layer, 'margin-left') / wrapper_default_w * 100 + '%';
-        hidden_layer.style.marginTop  = getStyle(lastChild, 'margin-top') + 'px';
-        hidden_layer.style.marginLeft = getStyle(lastChild, 'margin-left') / wrapper_default_w * 100 + '%';
-
+        lastChild.style.marginTop                 = getStyle(hidden_layer, 'margin-top') + 'px';
+        lastChild.style.marginLeft                = getStyle(hidden_layer, 'margin-left') / wrapper_default_w * 100 + '%';
+        hidden_layer.style.marginTop              = getStyle(lastChild, 'margin-top') + 'px';
+        hidden_layer.style.marginLeft             = getStyle(lastChild, 'margin-left') / wrapper_default_w * 100 + '%';
+        inProgress                                = false;
         activeheaderContent.style.opacity         = 1;
         activeheaderContent.style.transitionDelay = '1s';
         activeheaderContent.style.visibility      = 'visible';
@@ -285,7 +283,6 @@
 
         currentEl.style.width              = '100%';
         currentEl.style.transitionDuration = '0.75s';
-
         var done  = document.querySelector('#' + currentEl.id + ' span.done');
         var close = document.querySelector('#' + currentEl.id + ' .close');
         removeClass(close, 'hide');

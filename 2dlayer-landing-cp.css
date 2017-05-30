@@ -95,7 +95,8 @@ html {
   cursor: auto !important;
   pointer-events: none !important;
   text-align: left;
-  height: 13rem;
+  height: 11rem;
+  line-height: 1rem;
   font-size: 3rem;
 }
 
@@ -192,6 +193,8 @@ html {
   right: 20px;
   opacity: 1;
   cursor: pointer;
+  background-image: url("images/ic_close_green.png");
+  background-size: cover;
   -webkit-transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
   -moz-transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
   transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
@@ -281,13 +284,13 @@ html {
 }
 
 .cp-layer-wrapper .close {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   position: absolute;
-  top: 12px;
-  right: 8px;
+  top: 35px;
+  right: 15px;
   opacity: 0;
-  background-image: url("images/ic_close.png");
+  background-image: url("images/ic_close_white.png");
   background-size: cover;
   cursor: pointer;
   -webkit-transition: opacity .5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.75s;
