@@ -17,11 +17,7 @@
   var cp_f         = document.querySelector('#cp-following');
 
   var layer           = document.querySelectorAll('.layer')[0];
-  var layer_default_w = layer.offsetWidth;
   var layer_default_h = layer.offsetHeight;
-
-  var wrapper           = document.querySelectorAll('.cp-layer-wrapper')[0];
-  var wrapper_default_w = wrapper.offsetWidth;
 
   done.addEventListener('click', openSlide_cf, false);
 
@@ -46,7 +42,13 @@
 
       el.style.height                        = layer_default_h + 'px';
       el.style.transitionDuration            = '1.5s';
-      el.parentNode.style.width              = layer_default_w + 'px';
+
+      var width = document.querySelectorAll('.layer-content:not(.active)')[0].offsetWidth;
+      var wrapper           = document.querySelectorAll('.cp-layer-wrapper')[0];
+      var wrapper_default_w = wrapper.offsetWidth;
+
+
+      el.parentNode.style.width              = (width/wrapper_default_w)*100 + '%';
       el.parentNode.style.transitionDuration = '0.5s';
       var close                              = document.querySelector('#' + el.parentNode.id + ' span.close');
       var article                            = document.querySelector('#' + el.parentNode.id + ' .article');
@@ -56,7 +58,6 @@
         addClass(el.parentNode, 'visited');
         article.removeAttribute("style")
       }, 750);
-
       hide(close, 500);
     }
   }
@@ -82,7 +83,10 @@
 
         el.style.height                        = layer_default_h + 'px';
         el.style.transitionDuration            = '1.5s';
-        el.parentNode.style.width              = layer_default_w + 'px';
+
+        var dynamic_w = document.querySelectorAll('.layer')[0];
+
+        el.parentNode.style.width              = dynamic_w.offsetWidth + 'px';
         el.parentNode.style.transitionDuration = '.5s';
         activeheaderContent.style.visibility   = 'hidden';
         activeheaderContent.style.opacity      = 0;
@@ -136,7 +140,7 @@
     if(inProgress === true || inProgress === undefined){
       return;
     }
-    inProgress    = true;
+    inProgress =true;
     var currentEl = this.parentNode.parentNode;
     var parent    = this.parentNode.parentNode.parentNode;
     var lastChild = parent.lastElementChild;
@@ -156,11 +160,13 @@
     var article             = document.querySelector('#' + currentEl.id + ' .article');
     var activeheaderContent = document.querySelector('#' + lastChild.id + ' .header-content');
     var headerContent       = document.querySelector('#' + currentEl.id + ' .header-content');
+    var wrapper           = document.querySelectorAll('.cp-layer-wrapper')[0];
+    var wrapper_default_w = wrapper.offsetWidth;
 
     if(lastActive.className.indexOf('active') !== -1){
       closeSlide(lastActive);
       setTimeout(function(){
-
+console.log(wrapper_default_w)
         lastChild.style.marginTop     = getStyle(hidden_layer, 'margin-top') + 'px';
         lastChild.style.marginLeft    = getStyle(hidden_layer, 'margin-left') / wrapper_default_w * 100 + '%';
         hidden_layer.style.marginTop  = getStyle(lastChild, 'margin-top') + 'px';
@@ -187,7 +193,6 @@
 
           currentEl.style.width                     = '100%';
           currentEl.style.transitionDuration        = '0.75s';
-          inProgress                                = false;
           headerContent.style.opacity               = 1;
           headerContent.style.transitionDelay       = '.2s';
           headerContent.style.visibility            = 'visible';
@@ -225,7 +230,6 @@
 
         currentEl.style.width               = '100%';
         currentEl.style.transitionDuration  = '.75s';
-        inProgress                          = false;
         headerContent.style.opacity         = 1;
         headerContent.style.transitionDelay = '.2s';
         headerContent.style.visibility      = 'visible';
@@ -233,6 +237,7 @@
     }
     setTimeout(function(){
       removeClass(currentEl, 'on-top');
+      inProgress = false;
     }, 2000);
     temp = currentEl;
   }
@@ -269,7 +274,6 @@
         lastChild.style.marginLeft                = getStyle(hidden_layer, 'margin-left') / wrapper_default_w * 100 + '%';
         hidden_layer.style.marginTop              = getStyle(lastChild, 'margin-top') + 'px';
         hidden_layer.style.marginLeft             = getStyle(lastChild, 'margin-left') / wrapper_default_w * 100 + '%';
-        inProgress                                = false;
         activeheaderContent.style.opacity         = 1;
         activeheaderContent.style.transitionDelay = '1s';
         activeheaderContent.style.visibility      = 'visible';
@@ -305,9 +309,11 @@
       show(close, 500);
       addClass(done, 'hide');
     }
-    temp       = currentEl;
+    setTimeout(function(){
+      inProgress =false;
+    }, 3000)
     inProgress = false;
-
+    temp       = currentEl;
   }
 
   /********* helper ***********/
