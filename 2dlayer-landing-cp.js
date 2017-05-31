@@ -263,6 +263,9 @@ console.log(wrapper_default_w)
     var content             = document.querySelector('#' + currentEl.id + ' div');
     var activeheaderContent = document.querySelector('#' + lastChild.id + ' .header-content');
     var article             = document.querySelector('#' + currentEl.id + ' .article');
+    var wrapper           = document.querySelectorAll('.cp-layer-wrapper')[0];
+    var wrapper_default_w = wrapper.offsetWidth;
+
     if(lastActive.className.indexOf('active') !== -1){
       activeheaderContent.style.visibility = 'hidden';
       activeheaderContent.style.opacity    = 0;
